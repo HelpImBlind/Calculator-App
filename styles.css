@@ -1,0 +1,186 @@
+:root {
+    /* Default Theme - Theme 1 */
+    --bg-main: hsl(222, 26%, 31%); /* */
+    --bg-toggle: hsl(223, 31%, 20%);
+    --bg-screen: hsl(224, 36%, 15%);
+    --keys-bg-1: hsl(225, 21%, 49%);
+    --keys-shadow-1: hsl(224, 28%, 35%);
+    --keys-bg-2: hsl(6, 63%, 50%);
+    --keys-shadow-2: hsl(6, 70%, 34%);
+    --keys-bg-3: hsl(30, 25%, 89%);
+    --keys-shadow-3: hsl(28, 16%, 65%);
+    --text-1: hsl(221, 14%, 31%); /* No. keys */
+    --text-2: hsl(0, 0%, 100%); /* Func. keys */
+    --text-3: hsl(0, 0%, 100%); /* Header keys */
+}
+
+[data-theme="theme1"] {
+    --bg-main: hsl(222, 26%, 31%);
+    --bg-toggle: hsl(223, 31%, 20%);
+    --bg-screen: hsl(224, 36%, 15%);
+    --keys-bg-1: hsl(225, 21%, 49%);
+    --keys-shadow-1: hsl(224, 28%, 35%);
+    --keys-bg-2: hsl(6, 63%, 50%);
+    --keys-shadow-2: hsl(6, 70%, 34%);
+    --keys-bg-3: hsl(30, 25%, 89%);
+    --keys-shadow-3: hsl(28, 16%, 65%);
+    --text-1: hsl(221, 14%, 31%);
+    --text-2: hsl(0, 0%, 100%);
+    --text-3: hsl(0, 0%, 100%);
+}
+
+[data-theme="theme2"] {
+    --bg-main: hsl(0, 0%, 90%);
+    --bg-toggle: hsl(0, 5%, 81%);
+    --bg-screen: hsl(0, 0%, 93%);
+    --keys-bg-1: hsl(185, 42%, 37%);
+    --keys-shadow-1: hsl(185, 58%, 25%);
+    --keys-bg-2: hsl(25, 98%, 40%);
+    --keys-shadow-2: hsl(25, 99%, 27%);
+    --keys-bg-3: hsl(45, 7%, 89%);
+    --keys-shadow-3: hsl(35, 11%, 61%);
+    --text-1: hsl(60, 10%, 19%);
+    --text-2: hsl(0, 0%, 100%);
+    --text-3: hsl(221, 14%, 31%);
+}
+
+[data-theme="theme3"] {
+    --bg-main: hsl(268, 75%, 9%);
+    --bg-toggle: hsl(268, 71%, 12%);
+    --bg-screen: hsl(268, 71%, 12%);
+    --keys-bg-1: hsl(281, 89%, 26%);
+    --keys-shadow-1: hsl(285, 91%, 52%);
+    --keys-bg-2: hsl(176, 100%, 44%);
+    --keys-shadow-2: hsl(177, 92%, 70%);
+    --keys-bg-3: hsl(268, 47%, 21%);
+    --keys-shadow-3: hsl(290, 70%, 36%);
+    --text-1: hsl(52, 100%, 62%);
+    --text-2: hsl(0, 0%, 100%);
+    --text-3: hsl(52, 100%, 62%);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: "League Spartan", sans-serif;
+}
+    
+body {
+    background-color: var(--bg-main);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+section {
+    margin: 15px 0;
+}
+
+.calc_header {
+    color: var(--text-3);
+    font-weight: 700;
+}
+
+.calc_display {
+    background-color: var(--bg-screen);
+    color: var(--text-3);
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    padding: 15px 30px;
+}
+
+#calc_display_input {
+    font-size: 1.25em;
+    margin: 0;
+}
+
+#calc_display_result {
+    float: inline-end;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.calc_btns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    background-color: var(--bg-toggle);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.calc_btns button.span-2 {
+    grid-column: span 2;
+}
+
+.calc_btns button {
+    width: 100%;
+    background-color: var(--keys-bg-3);
+    color: var(--text-1);
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.5em;
+    box-shadow: 0px 3.5px var(--keys-shadow-3);
+    border: 0;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+}
+
+.calc_btns_del_res {
+    background-color: var(--keys-bg-1) !important;
+    box-shadow: 0px 3.5px var(--keys-shadow-1) !important;
+    color: var(--text-2) !important;
+}
+
+.calc_btns_equal {
+    background-color: var(--keys-bg-2) !important;
+    box-shadow: 0px 3.5px var(--keys-shadow-2) !important;
+    color: var(--text-2) !important;
+}
+
+.calc_btns button:hover {
+    opacity: 0.8;
+}
+
+.calc_btns button:active {
+    transform: scale(0.9);
+    opacity: 1;
+}
+
+
+/* Theme Toggle */
+.theme-range {
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 4px;
+    background-color: var(--bg-toggle);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.theme-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: var(--keys-bg-2);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .theme-range::-moz-range-thumb {
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: var(--keys-bg-2);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
